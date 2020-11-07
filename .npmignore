@@ -1,0 +1,14 @@
+node_modules
+demo
+src
+__mocks__
+.storybook
+.vscode
+stories
+.babelrc
+.eslintignore
+.eslintrc.json
+.travis.yml
+.stylelintignore
+.stylelintrc
+dist/__tests__/**/*.js

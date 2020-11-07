@@ -1,0 +1,35 @@
+.uf-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.uf-loading-overlay {
+  position: absolute;
+  left: -100px;
+  right: -100px;
+  top: -100px;
+  bottom: -100px;
+  z-index: 9999;
+  opacity: 0.5;
+  display: none;
+}
+
+.uf-loading-overlay.light {
+  background-color: #fff;
+  background-image: url(spinner-light.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.uf-loading-overlay.dark {
+  background-color: #000;
+  background-image: url(spinner-dark.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.uf-loading-overlay.show {
+  display: block;
+}
