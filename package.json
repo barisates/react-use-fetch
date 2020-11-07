@@ -1,5 +1,5 @@
 {
-  "name": "@barisates/react-use-fetch",
+  "name": "react-use-fetch-hooks",
   "version": "1.0.0",
   "description": "Fetch with simple loading container.",
   "main": "dist/index.js",

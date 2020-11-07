@@ -11,7 +11,7 @@ React form validation component.
 #### Install with NPM:
 
 ```
-$ npm install react-use-fetch
+$ npm install react-use-fetch-hooks
 ```
 
 #### Usage
@@ -26,7 +26,8 @@ When you send the fetch request, the field inside the ```<Loading></Loading>``` 
 
 ```jsx
 import React from 'react';
-import useFetch from '@barisates/react-use-fetch'
+import useFetch from 'react-use-fetch-hooks';
+import "react-use-fetch-hooks/dist/index.css";
 
 function App() {
   const [Fetch, Loading] = useFetch(
