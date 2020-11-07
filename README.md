@@ -26,7 +26,7 @@ When you send the fetch request, the field inside the ```<Loading></Loading>``` 
 
 ```jsx
 import React from 'react';
-import useFetch from 'react-usefetch'
+import useFetch from '@barisates/react-use-fetch'
 
 function App() {
   const [Fetch, Loading] = useFetch(
