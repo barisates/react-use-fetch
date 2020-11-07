@@ -26,7 +26,7 @@ When you send the fetch request, the field inside the ```<Loading></Loading>``` 
 ```jsx
 import React from 'react';
 import useFetch from 'react-use-fetch-hooks';
-import "react-use-fetch-hooks/dist/index.css";
+import 'react-use-fetch-hooks/dist/index.css';
 
 function App() {
   const [Fetch, Loading] = useFetch(
@@ -34,11 +34,11 @@ function App() {
     'REQUEST OPTIONS',
   );
   return (
-	<div>
-		<Loading>
-			<button type="button" onClick={() => Fetch()}></button>
-		</Loading>
-	</div>
+  <div>
+    <Loading>
+      <button type="button" onClick={() => Fetch()}></button>
+    </Loading>
+  </div>
   );
 };
 
