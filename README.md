@@ -2,7 +2,6 @@
 React form validation component.
 
 [![npm package][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
 [![Dependencies Status][david-image]][david-url]
 [![Package Size][bundlephobia-image]][bundlephobia-url]
 
@@ -72,11 +71,9 @@ Descriptions and configuration settings for component properties.
  - http://barisates.com
  - [github/barisates](https://github.com/barisates "github/barisates")
 
-[npm-image]:https://img.shields.io/npm/v/react-use-fetch.svg
-[npm-url]:https://www.npmjs.com/package/react-use-fetch
-[travis-image]:https://travis-ci.org/barisates/react-use-fetch.svg?branch=master
-[travis-url]:https://travis-ci.org/barisates/react-use-fetch
-[david-image]:https://david-dm.org/barisates/react-use-fetch.svg
-[david-url]:https://david-dm.org/barisates/react-use-fetch
-[bundlephobia-image]:https://badgen.net/bundlephobia/minzip/react-use-fetch
-[bundlephobia-url]:https://bundlephobia.com/result?p=react-use-fetch
+[npm-image]:https://img.shields.io/npm/v/react-use-fetch-hooks.svg
+[npm-url]:https://www.npmjs.com/package/react-use-fetch-hooks
+[david-image]:https://david-dm.org/barisates/react-use-fetch-hooks.svg
+[david-url]:https://david-dm.org/barisates/react-use-fetch-hooks
+[bundlephobia-image]:https://badgen.net/bundlephobia/minzip/react-use-fetch-hooks
+[bundlephobia-url]:https://bundlephobia.com/result?p=react-use-fetch-hooks
