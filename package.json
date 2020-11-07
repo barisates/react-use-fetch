@@ -1,6 +1,6 @@
 {
   "name": "react-use-fetch-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch with simple loading container.",
   "main": "dist/index.js",
   "scripts": {
@@ -73,6 +73,9 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
+    "react": "^16.9.0"
+  },
+  "peerDependencies": {
     "react": "^16.9.0"
   }
 }
