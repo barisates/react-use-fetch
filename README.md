@@ -2,7 +2,6 @@
 React form validation component.
 
 [![npm package][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
 [![Dependencies Status][david-image]][david-url]
 [![Package Size][bundlephobia-image]][bundlephobia-url]
 
