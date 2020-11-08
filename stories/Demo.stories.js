@@ -11,10 +11,13 @@ export const Demo = () => {
   const [elapsed, setElapsed] = useState(3000);
   const [dark, setDark] = useState(false);
   const [Fetch, Loading] = useFetch(
-    `http://slowwly.robertomurray.co.uk/delay/${elapsed}/url/http://www.google.co.uk`,
+    `https://httpstat.us/200?sleep=${elapsed}`,
     {
-      method: 'post',
-      'Content-Type': 'application/json',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
     },
   );
 
@@ -36,11 +39,11 @@ export const Demo = () => {
                 <legend className="col-form-label col-sm-2 pt-0">Theme</legend>
                 <div className="col-sm-10">
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked={!dark} onClick={() => setDark(false)} />
+                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" defaultChecked={!dark} onClick={() => setDark(false)} />
                     <label className="form-check-label" htmlFor="gridRadios1">Light</label>
                   </div>
                   <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" checked={dark} onClick={() => setDark(true)} />
+                    <input className="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" defaultChecked={dark} onClick={() => setDark(true)} />
                     <label className="form-check-label" htmlFor="gridRadios2">Dark</label>
                   </div>
                 </div>
