@@ -1,5 +1,5 @@
-# react-valid-form
-React form validation component.
+# react-use-fetch
+Fetch with simple loading container.
 
 [![npm package][npm-image]][npm-url]
 [![Dependencies Status][david-image]][david-url]
