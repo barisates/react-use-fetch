@@ -5,11 +5,11 @@ const useFetch = (url, requestOptions) => {
   const [loading, setLoading] = useState(false);
   const Fetch = data => {
     setLoading(true);
+    const requestOptionsClone = { ...requestOptions };
     if (data) {
-      // eslint-disable-next-line no-param-reassign
-      requestOptions.body = JSON.stringify(data);
+      requestOptionsClone.body = JSON.stringify(data);
     }
-    return (fetch(url, requestOptions)
+    return (fetch(url, requestOptionsClone)
       .then(response => {
         if (response.ok) {
           return response.json();
