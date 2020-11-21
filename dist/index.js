@@ -17,6 +17,12 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -35,8 +41,14 @@ var useFetch = function useFetch(url, requestOptions) {
       loading = _useState2[0],
       setLoading = _useState2[1];
 
-  var Fetch = function Fetch() {
+  var Fetch = function Fetch(data) {
     setLoading(true);
+
+    if (data) {
+      // eslint-disable-next-line no-param-reassign
+      requestOptions.body = JSON.stringify(data);
+    }
+
     return fetch(url, requestOptions).then(function (response) {
       if (response.ok) {
         return response.json();
@@ -52,6 +64,13 @@ var useFetch = function useFetch(url, requestOptions) {
       console.error(ex);
       return false;
     });
+  };
+
+  Fetch.propTypes = {
+    data: _propTypes["default"].object
+  };
+  Fetch.defaultProps = {
+    data: null
   };
 
   var Loading = function Loading(_ref) {
@@ -73,6 +92,32 @@ var useFetch = function useFetch(url, requestOptions) {
   Loading.defaultProps = {
     dark: false,
     children: null,
+    className: ''
+  };
+
+  var Button = function Button(_ref2) {
+    var text = _ref2.text,
+        className = _ref2.className,
+        type = _ref2.type,
+        rest = _objectWithoutProperties(_ref2, ["text", "className", "type"]);
+
+    return (
+      /*#__PURE__*/
+      // eslint-disable-next-line react/button-has-type
+      _react["default"].createElement("button", _extends({
+        type: type,
+        className: ['uf-button', className]
+      }, rest), text)
+    );
+  };
+
+  Button.propTypes = {
+    text: _propTypes["default"].string.isRequired,
+    type: _propTypes["default"].string,
+    className: _propTypes["default"].string
+  };
+  Button.defaultProps = {
+    type: 'button',
     className: ''
   };
   return [Fetch, Loading];

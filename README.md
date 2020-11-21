@@ -56,6 +56,11 @@ Descriptions and configuration settings for component properties.
 | url | string | no | null | Fetch request uri. |
 | requestOptions | string | no | null | Fetch [request options](https://github.github.io/fetch/#options "request options"). |
 
+##### Fetch
+
+| Property | Type | Required | Default | Description |
+|--------------------------|---------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| data | object | no | null | Fetch body. |
 
 ##### Loading
 

@@ -1,6 +1,6 @@
 {
   "name": "react-use-fetch-hooks",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Fetch with simple loading container.",
   "main": "dist/index.js",
   "scripts": {
