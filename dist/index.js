@@ -83,43 +83,74 @@ var useFetch = function useFetch(url, requestOptions) {
   var Loading = function Loading(_ref) {
     var dark = _ref.dark,
         children = _ref.children,
-        className = _ref.className;
+        className = _ref.className,
+        button = _ref.button;
     return /*#__PURE__*/_react["default"].createElement("div", {
       className: "uf-container ".concat(className)
     }, /*#__PURE__*/_react["default"].createElement("div", {
-      className: "uf-loading-overlay ".concat(dark ? 'dark' : 'light', " ").concat(loading && 'show')
+      className: "uf-loading-overlay ".concat(dark ? 'dark' : 'light', " ").concat(loading && 'show', " ").concat(button && 'button')
     }), children);
   };
 
   Loading.propTypes = {
     children: _propTypes["default"].node,
     dark: _propTypes["default"].bool,
-    className: _propTypes["default"].string
+    className: _propTypes["default"].string,
+    button: _propTypes["default"].bool
   };
   Loading.defaultProps = {
     dark: false,
+    button: false,
     children: null,
     className: ''
   };
 
   var Button = function Button(_ref2) {
-    var text = _ref2.text,
+    var children = _ref2.children,
         className = _ref2.className,
         type = _ref2.type,
-        rest = _objectWithoutProperties(_ref2, ["text", "className", "type"]);
+        rest = _objectWithoutProperties(_ref2, ["children", "className", "type"]);
 
     return (
       /*#__PURE__*/
       // eslint-disable-next-line react/button-has-type
       _react["default"].createElement("button", _extends({
         type: type,
-        className: ['uf-button', className]
-      }, rest), text)
+        className: "uf-button ".concat(className)
+      }, rest), /*#__PURE__*/_react["default"].createElement("div", {
+        className: "loader ".concat(loading && 'show')
+      }, /*#__PURE__*/_react["default"].createElement("svg", {
+        width: "16",
+        height: "16",
+        viewBox: "0 0 38 38",
+        xmlns: "http://www.w3.org/2000/svg",
+        stroke: "#fff"
+      }, /*#__PURE__*/_react["default"].createElement("g", {
+        fill: "none",
+        fillRule: "evenodd"
+      }, /*#__PURE__*/_react["default"].createElement("g", {
+        transform: "translate(1 1)",
+        strokeWidth: "2"
+      }, /*#__PURE__*/_react["default"].createElement("circle", {
+        strokeOpacity: ".5",
+        cx: "18",
+        cy: "18",
+        r: "18"
+      }), /*#__PURE__*/_react["default"].createElement("path", {
+        d: "M36 18c0-9.94-8.06-18-18-18"
+      }, /*#__PURE__*/_react["default"].createElement("animateTransform", {
+        attributeName: "transform",
+        type: "rotate",
+        from: "0 18 18",
+        to: "360 18 18",
+        dur: "1s",
+        repeatCount: "indefinite"
+      })))))), children)
     );
   };
 
   Button.propTypes = {
-    text: _propTypes["default"].string.isRequired,
+    children: _propTypes["default"].node.isRequired,
     type: _propTypes["default"].string,
     className: _propTypes["default"].string
   };
@@ -127,7 +158,7 @@ var useFetch = function useFetch(url, requestOptions) {
     type: 'button',
     className: ''
   };
-  return [Fetch, Loading];
+  return [Fetch, Loading, Button];
 };
 
 var _default = useFetch;

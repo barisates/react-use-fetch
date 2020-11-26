@@ -33,3 +33,16 @@
 .uf-loading-overlay.show {
   display: block;
 }
+
+.uf-loading-overlay.button {
+  opacity: 0;
+}
+
+.uf-button .loader {
+  display: none;
+  margin-right: 5px;
+}
+
+.uf-button .loader.show {
+  display: inline;
+}

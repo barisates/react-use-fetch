@@ -37,10 +37,12 @@ const useFetch = (url, requestOptions) => {
     data: null,
   };
 
-  const Loading = ({ dark, children, className }) => (
+  const Loading = ({ dark, children, className, button }) => (
     <div className={`uf-container ${className}`}>
-      <div className={`uf-loading-overlay ${dark ? 'dark' : 'light'} ${loading && 'show'}`} />
-      {children}
+      {loading && (<div className={`uf-loading-overlay ${dark ? 'dark' : 'light'} ${button && 'button'}`} />)}
+      <div>
+        {children}
+      </div>
     </div>
   );
 
@@ -48,21 +50,45 @@ const useFetch = (url, requestOptions) => {
     children: PropTypes.node,
     dark: PropTypes.bool,
     className: PropTypes.string,
+    button: PropTypes.bool,
   };
 
   Loading.defaultProps = {
     dark: false,
+    button: false,
     children: null,
     className: '',
   };
 
-  const Button = ({ text, className, type, ...rest }) => (
+  const Button = ({ children, className, type, ...rest }) => (
     // eslint-disable-next-line react/button-has-type
-    <button type={type} className={['uf-button', className]} {...rest}>{text}</button>
+    <button type={type} className={`uf-button ${className}`} {...rest}>
+      <div className={`loader ${loading && 'show'}`}>
+        <svg width="16" height="16" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+          <g fill="none" fillRule="evenodd">
+            <g transform="translate(1 1)" strokeWidth="2">
+              <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
+              <path d="M36 18c0-9.94-8.06-18-18-18">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 18 18"
+                  to="360 18 18"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </path>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      {children}
+    </button>
   );
 
   Button.propTypes = {
-    text: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     type: PropTypes.string,
     className: PropTypes.string,
   };
@@ -72,7 +98,7 @@ const useFetch = (url, requestOptions) => {
     className: '',
   };
 
-  return [Fetch, Loading];
+  return [Fetch, Loading, Button];
 };
 
 export default useFetch;

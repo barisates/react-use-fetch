@@ -13,7 +13,6 @@
   bottom: -100px;
   z-index: 9999;
   opacity: 0.5;
-  display: none;
 }
 
 .uf-loading-overlay.light {
@@ -32,4 +31,17 @@
 
 .uf-loading-overlay.show {
   display: block;
+}
+
+.uf-loading-overlay.button {
+  opacity: 0;
+}
+
+.uf-button .loader {
+  display: none;
+  margin-right: 5px;
+}
+
+.uf-button .loader.show {
+  display: inline;
 }

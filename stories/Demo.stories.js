@@ -10,7 +10,8 @@ export default {
 export const Demo = () => {
   const [elapsed, setElapsed] = useState(3000);
   const [dark, setDark] = useState(false);
-  const [Fetch, Loading] = useFetch(
+  const [button, setButton] = useState(true);
+  const [Fetch, Loading, Button] = useFetch(
     `https://httpstat.us/200?sleep=${elapsed}`,
     {
       method: 'POST',
@@ -21,13 +22,14 @@ export const Demo = () => {
     },
   );
 
-  const FetchStart = () => {
+  const FetchStart = but => {
+    setButton(but);
     Fetch().then(response => console.log(response));
   };
 
   return (
     <div className="container">
-      <Loading dark={dark}>
+      <Loading dark={dark} button={button}>
         <div className="row">
           <div className="col-md-12 p-5">
             <div className="form-group">
@@ -49,7 +51,8 @@ export const Demo = () => {
                 </div>
               </div>
             </fieldset>
-            <button type="button" onClick={() => FetchStart()} className="btn btn-primary">Fetch Start</button>
+            <button type="button" onClick={() => FetchStart(false)} className="btn btn-primary mr-2">Fetch Start</button>
+            <Button type="button" onClick={() => FetchStart(true)} className="btn btn-primary">Fetch Start Only Button</Button>
           </div>
         </div>
       </Loading>

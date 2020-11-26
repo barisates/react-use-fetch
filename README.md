@@ -68,7 +68,7 @@ Descriptions and configuration settings for component properties.
 |--------------------------|---------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | dark | bool | no | false | Use dark theme loading overlay. |
 | className | string | no | null | Loading container custom class. |
-
+| button | bool | no | false | Fetch loading only button. |
 
 #### Author
 
